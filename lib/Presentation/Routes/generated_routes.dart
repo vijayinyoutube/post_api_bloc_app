@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:post_api_bloc_app/Presentation/Screens/Homepage/UI/homepage.dart';
 
 import '../../BusinessLogic/bloc/homepage_bloc.dart';
-import '../Screens/HomePage/UI/homepage.dart';
 
 class RouteGenerator {
   final HomepageBloc _homepageBloc = HomepageBloc();
@@ -16,7 +15,7 @@ class RouteGenerator {
         return MaterialPageRoute(
           builder: (_) => BlocProvider<HomepageBloc>.value(
             value: _homepageBloc,
-            child: HomePage(),
+            child: const HomePage(),
           ),
         );
 
