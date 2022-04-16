@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:post_api_bloc_app/Data/Models/homepage_model.dart';
 import '../../../Components/spacer.dart';
 import '../../../Declarations/Global/constants.dart';
+import '../Widgets/listtile.dart';
 import '../Widgets/textformfields.dart';
 
 import '../../../../BusinessLogic/bloc/homepage_bloc.dart';
@@ -54,7 +55,7 @@ class _HomePageState extends State<HomePage> {
           if (state is HomepageLoaded) {
             return buildLoadedlayout(state.data);
           } else if (state is HomepageLoading) {
-            return const CircularProgressIndicator();
+            return const Center(child: CircularProgressIndicator());
           } else {
             return buildInitialLayout();
           }
@@ -86,14 +87,16 @@ class _HomePageState extends State<HomePage> {
             HeightSpacer(myHeight: kSpacing),
             SearchButtonBuilder(
               focusNode: searchBtnFocus,
-              job: jobController.text,
-              name: nameController.text,
+              name: nameController,
+              job: jobController,
             ),
           ],
         ),
       );
 
   Widget buildLoadedlayout(HomePageModel data) => Center(
-        child: Text(data.name),
-      );
+          child: Padding(
+        padding: kHPadding * 2,
+        child: ListTileBuilder(data),
+      ));
 }
