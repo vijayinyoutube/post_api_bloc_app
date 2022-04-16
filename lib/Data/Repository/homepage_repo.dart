@@ -10,11 +10,10 @@ abstract class HomePageRepository {
 class HomePageRepo extends HomePageRepository {
   @override
   Future<HomePageModel> fetchDetails(String name, String job) async {
-    final response = await http.post(Uri.parse("$baseUrl/users"),
-        body: {"name": "morpheus", "job": "leader"});
+    final response = await http.post(Uri.parse("$baseUrl/api/users"),
+        body: {"name": name, "job": job});
 
     if (response.statusCode == 201) {
-      print(response.body);
       return HomePageModel.fromJson(response.body);
     } else {
       print("ERROR IN API CALL ${response.statusCode}");
