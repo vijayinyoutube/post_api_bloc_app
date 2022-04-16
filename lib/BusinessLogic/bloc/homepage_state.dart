@@ -7,6 +7,10 @@ class HomepageInitial extends HomepageState {}
 
 class HomepageLoading extends HomepageState {}
 
-class HomepageLoaded extends HomepageState {}
+class HomepageLoaded extends HomepageState {
+  final HomePageModel data;
+
+  HomepageLoaded(this.data);
+}
 
 class HomepageError extends HomepageState {}

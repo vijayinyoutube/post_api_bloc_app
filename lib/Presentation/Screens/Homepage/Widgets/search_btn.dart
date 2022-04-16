@@ -1,27 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:post_api_bloc_app/Presentation/Declarations/Global/constants.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../BusinessLogic/bloc/homepage_bloc.dart';
+import '../../../Declarations/Global/constants.dart';
 
 class SearchButtonBuilder extends StatelessWidget {
-  const SearchButtonBuilder({Key? key}) : super(key: key);
+  const SearchButtonBuilder(
+      {Key? key,
+      required this.focusNode,
+      required this.name,
+      required this.job})
+      : super(key: key);
+
+  final FocusNode focusNode;
+  final String name;
+  final String job;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: kPadding * 2,
+      padding: kPadding,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           onPrimary: Colors.blue,
           primary: Colors.blue,
           minimumSize: const Size(double.infinity, 50),
-          padding: const EdgeInsets.symmetric(horizontal: 100),
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(15),
-            ),
+          shape: RoundedRectangleBorder(
+            borderRadius: kBorderRadius,
           ),
         ),
-        onPressed: () {},
-        child: const Text("Search",style: TextStyle(color: Colors.white),),
+        onPressed: () =>
+            BlocProvider.of<HomepageBloc>(context).add(SendData(name, job)),
+        child: Text(
+          "Search",
+          style: TextStyle(color: Colors.white, fontSize: kfontSize),
+        ),
       ),
     );
   }

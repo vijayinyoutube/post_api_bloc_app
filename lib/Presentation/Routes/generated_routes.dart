@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:post_api_bloc_app/Presentation/Screens/Homepage/UI/homepage.dart';
+import 'package:post_api_bloc_app/Data/Repository/homepage_repo.dart';
+import '../Screens/Homepage/UI/homepage.dart';
 
 import '../../BusinessLogic/bloc/homepage_bloc.dart';
 
 class RouteGenerator {
-  final HomepageBloc _homepageBloc = HomepageBloc();
+  final HomepageBloc _homepageBloc = HomepageBloc(HomePageRepo());
 
   Route<dynamic> generateRoute(RouteSettings settings) {
     final args = settings.arguments;
