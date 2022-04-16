@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 
 import '../API/api.dart';
@@ -16,7 +17,7 @@ class HomePageRepo extends HomePageRepository {
     if (response.statusCode == 201) {
       return HomePageModel.fromJson(response.body);
     } else {
-      print("ERROR IN API CALL ${response.statusCode}");
+      debugPrint("ERROR IN API CALL ${response.statusCode}");
       throw Exception('Failed to load API data');
     }
   }

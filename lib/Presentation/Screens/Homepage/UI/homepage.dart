@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:post_api_bloc_app/Data/Models/homepage_model.dart';
+import '../../../Components/error_screen.dart';
 import '../../../Components/spacer.dart';
 import '../../../Declarations/Global/constants.dart';
 import '../Widgets/listtile.dart';
@@ -56,6 +57,8 @@ class _HomePageState extends State<HomePage> {
             return buildLoadedlayout(state.data);
           } else if (state is HomepageLoading) {
             return const Center(child: CircularProgressIndicator());
+          } else if (state is HomepageError) {
+            return const ErrorScreenBuilder();
           } else {
             return buildInitialLayout();
           }
