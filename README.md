@@ -49,7 +49,11 @@ Visit my channel 👉 : https://www.youtube.com/channel/UCBC_Z7jla1GSITcqLKAtPxQ
   http: ^0.13.4
 ```
 
+## Sample Results
 
+<p align="center">
+<img src="https://user-images.githubusercontent.com/58719230/163833538-34607bc7-6f68-4ac1-85f8-89c3299e6924.png" width="100%">
+</p>
   
 ## License
 
